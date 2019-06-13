@@ -1,0 +1,20 @@
+<nav class='navbar navbar-expand navbar-light bg-light'>
+  <a class='navbar-brand'>{{pageTitle}}</a>
+  <ul class='nav nav-pills'>
+    <li>
+      <a class='nav-link' routerLinkActive='active' [routerLink]="['/home']">
+        <i class="fa fa-home mr-1"></i>
+        <span>Home</span>
+      </a>
+    </li>
+    <li>
+      <a class='nav-link' routerLinkActive='active' [routerLink]="['/products']">
+        <i class="fa fa-list-alt mr-1"></i>
+        <span>Products</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+<div class='container-fluid'>
+  <router-outlet></router-outlet>
+</div>

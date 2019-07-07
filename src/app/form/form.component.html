@@ -1,0 +1,77 @@
+﻿<form #mainForm="ngForm" (ngSubmit)="onSubmit(mainForm)">
+  <div class="form-group mb-0">
+    <label for="TextField">
+      <span class="mr-1" [class.text-danger]="mainForm.submitted && otherProperty.invalid">Text Field:</span>
+      <span [hidden]="otherProperty.valid || otherProperty.untouched" class="badge badge-pill badge-danger">
+        Field is required!
+      </span>
+    </label>
+    <input id="TextField" type="text" class="form-control" required name="textValue" [(ngModel)]="pageModel.textValue"
+      (blur)="onBlur(textField)" #textField #otherProperty="ngModel" />
+  </div>
+
+  <div>
+    <span class="badge badge-pill badge-info">{{ textField.className}}</span>    
+  </div>
+  <div>
+    <span class="badge badge-pill badge-info">{{ otherProperty.dirty}}</span>
+    <span class="badge badge-pill badge-info">{{ otherProperty.touched}}</span>
+    <span class="badge badge-pill badge-info">{{ otherProperty.untouched}}</span>
+    <span class="badge badge-pill badge-info">{{ otherProperty.pristine}}</span>
+    <span class="badge badge-pill badge-info">{{ otherProperty.invalid}}</span>
+    <span class="badge badge-pill badge-info">{{ otherProperty.valid}}</span>
+  </div>
+  <div class="mb-2">
+    <span class="badge badge-pill badge-primary">{{ textField.value}}</span>
+    <input type="text" class="form-control" [value]="pageModel.textValue" />
+  </div>
+
+  <div class="form-group mb-0">
+    <label for="TestSelect">Select:</label>
+    <select id="TestSelect" class="form-control" name="selectedDropDownValue" #dropDown1
+      [(ngModel)]="pageModel.selectedDropDownValue">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+  </div>
+
+  <span class="badge badge-pill badge-info mb-2">{{ dropDown1.className}}</span>
+
+  <div class="form-group">
+    <label>Multiple Select:</label>
+    <select multiple class="form-control" name="selectedMultipleDropDownValue"
+      [(ngModel)]="pageModel.selectedMultipleDropDownValue">
+      <option value="100">1</option>
+      <option value="200">2</option>
+      <option value="300">3</option>
+    </select>
+  </div>
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="defaultCheck1" name="isChecked"
+      [(ngModel)]="pageModel.isChecked">
+    <label class="form-check-label" for="defaultCheck1">Default checkbox</label>
+  </div>
+
+  <div class="mb-1">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="radioValue" id="inlineRadio1" value="Value1"
+        [(ngModel)]="pageModel.radioValue">
+      <label class="form-check-label" for="inlineRadio1">1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="radioValue" id="inlineRadio2" value="Value2"
+        [(ngModel)]="pageModel.radioValue">
+      <label class="form-check-label" for="inlineRadio2">2</label>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success">
+    <i class="fa fa-check mr-1"></i>
+    <span>Show Summary</span>
+  </button>
+</form>
+
+<br />
+<pre class="text-danger">{{ pageModel | json }}</pre>

@@ -2,9 +2,15 @@
   <a class='navbar-brand'>{{pageTitle}}</a>
   <ul class='nav nav-pills'>
     <li>
-      <a class='nav-link' routerLinkActive='active' [routerLink]="['/home']">
+      <a class='nav-link' [routerLink]="['/']" routerLinkActive='active' [routerLinkActiveOptions]="{exact:true}">
         <i class="fa fa-home mr-1"></i>
         <span>Home</span>
+      </a>
+    </li>
+    <li>
+      <a class='nav-link' routerLinkActive='active' [routerLink]="['/form']">
+        <i class="fa fa-home mr-1"></i>
+        <span>Form</span>
       </a>
     </li>
     <li>
